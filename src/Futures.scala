@@ -64,9 +64,7 @@ object Futures extends App {
         case Failure(e) => e.printStackTrace
       }
     }
-
   }
-
 
   println("Learning Scala Futures ...")
 
