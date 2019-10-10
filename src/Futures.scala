@@ -1,9 +1,14 @@
 import scala.concurrent.ExecutionContext
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
+import scala.concurrent.blocking
+import scala.util.Random
+import scala.util.{Failure, Success}
 
 
 // http://engineering.monsanto.com/2015/06/15/implicits-futures/
+// Original author of ExecutionContext implicits sample code: Posted by Jorge Montero
+
 case class Employee(id: Int, name: String)
 
 case class Role(name: String, department: String)
@@ -42,6 +47,27 @@ object EmployeeDAO extends EmployeeGrabberBabber {
 
 object Futures extends App {
 
+  /**
+    * Execute concurrently numExecs sleeps (in forkJoin Execution Context each sleep will be a Thread)
+    * @param numExecs
+    */
+  def crazyExec(id: String, numExecs: Int = 100): Unit = {
+    println(s"Creating ${numExecs} sleeps")
+    for( i <- 1 to numExecs ) {
+      Future {
+        blocking {
+          Thread.sleep(Random.nextInt(100))
+          Seq(id, i)
+        }
+      }.onComplete {
+        case Success(value) => println(s"One crazyExec completed: ${value}")
+        case Failure(e) => e.printStackTrace
+      }
+    }
+
+  }
+
+
   println("Learning Scala Futures ...")
 
   println(s"A sync Employee is ${EmployeeDAO.rawEmployee(10)}")
@@ -74,4 +100,17 @@ object Futures extends App {
                               role <- EmployeeDAO.role(employee)}
                               yield EmployeeWithRole(employee.id, employee.name, role)
 
+  println(s"An async Employee with implicits is ${employeeWithRole}")
+
+  employeeWithRole.onComplete {
+    case Success(value) => println(s"An async Employee with implicits is ${employeeWithRole} completed (${value})")
+    case Failure(e) => e.printStackTrace
+  }
+
+  crazyExec("a",15)
+  crazyExec("b", 20)
+
+  println(s"crazyExec is being executed")
+
+  Thread.sleep(10000)
 }
