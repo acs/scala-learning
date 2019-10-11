@@ -1,4 +1,6 @@
-import scala.concurrent.{Future, future}
+package acs
+
+import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.{Failure, Success}
 import scala.util.Random
@@ -6,7 +8,7 @@ import scala.util.Random
 // Sample from: https://alvinalexander.com/scala/concurrency-with-scala-futures-tutorials-examples
 
 object Cloud {
-  def runAlgorithm(i: Int): Future[Int] = future {
+  def runAlgorithm(i: Int): Future[Int] = Future {
     Thread.sleep(Random.nextInt(500))
     val result = i + 10
     println(s"returning result from cloud: $result")
