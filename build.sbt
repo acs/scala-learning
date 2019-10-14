@@ -1,4 +1,4 @@
-name := "scala-samples-sbt"
+name := "scala-samples"
 version := "0.1"
 scalaVersion := "2.11.12"
 val mockitoVersion = "1.10.19"
@@ -11,3 +11,4 @@ libraryDependencies ++= Seq(
   "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test,
   "org.mockito" % "mockito-all" % mockitoVersion % Test
 )
+

@@ -17,7 +17,7 @@ case class Role(name: String, department: String)
 
 case class EmployeeWithRole(id: Int, name: String, role: Role)
 
-trait EmployeeGrabberBabber {
+trait EmployeeProfile {
 
   def rawEmployee(id: Int): Employee
 
@@ -29,9 +29,9 @@ trait EmployeeGrabberBabber {
 }
 
 /* This is test code that fakes some delays. Don't sleep on threads on production code! */
-object EmployeeDAO extends EmployeeGrabberBabber {
+object EmployeeDAO extends EmployeeProfile {
 
-  private def delay[T, V](f: (T) => V, millis: Int)(t: T)(implicit ec: ExecutionContext): Future[V] = {
+  private def delay[T, V](f: T => V, millis: Int)(t: T)(implicit ec: ExecutionContext): Future[V] = {
     Future {
       Thread.sleep(millis)
       f(t)
