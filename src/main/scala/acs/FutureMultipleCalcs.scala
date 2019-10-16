@@ -61,25 +61,24 @@ object FutureLife extends App {
   }
 
   def drinkBeerInFuture(bar: Bar): Future[Future[Future[Boolean]]] = Future {
-    bar.isOpen().map { open =>
-      open match {
-        case true => bar.hasBeer()
-        case _ => throw new Exception("Bar is closed")
-      }
+    bar.isOpen().map {
+      case true => bar.hasBeer()
+      case _ => throw new Exception("Bar is closed")
     }
   }
 
   def drinkBeerNow(bar: Bar) = {
     val beer = Await.result(
-    bar.isOpen().flatMap { open =>
-      open match {
+      bar.isOpen().flatMap {
         case true => bar.hasBeer()
         case _ => Future(false)
-      }
-    }, 10 seconds)
-
+      }, 10 seconds)
     if (beer) println("Drinking beer")
     else println("Can not drink beer! :(")
+  }
+
+  def drinkBeerNowSlate(bar: Bar) = {
+    // Convert flatMap to for comprehension
   }
 
   drinkBeerNow(new Bar("Luz"))
