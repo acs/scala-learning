@@ -77,10 +77,17 @@ object FutureLife extends App {
     else println("Can not drink beer! :(")
   }
 
+  /* For tips on reducing nested Futures for serializig them:
+    https://www.michaelpollmeier.com/execute-scala-futures-in-serial-one-after-the-other-non-blocking
+    In our case we don't need to serialize them but I will do it
+   */
   def drinkBeerNowSlate(bar: Bar) = {
-    // Convert flatMap to for comprehension
+    val checks = Future.sequence(List(bar.isOpen(), bar.hasBeer()))
+    val res = Await.result(checks, 10 seconds)
+    if (res(0) && res(1)) println("Drinking beer")
+    else println("Can not drink beer! :(")
   }
 
   drinkBeerNow(new Bar("DancingKing"))
-
+  drinkBeerNowSlate(new Bar("DancingKing"))
 }
