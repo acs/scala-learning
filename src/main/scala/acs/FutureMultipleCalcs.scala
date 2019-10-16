@@ -81,6 +81,6 @@ object FutureLife extends App {
     // Convert flatMap to for comprehension
   }
 
-  drinkBeerNow(new Bar("Luz"))
+  drinkBeerNow(new Bar("DancingKing"))
 
 }
