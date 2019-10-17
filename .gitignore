@@ -1,2 +1,8 @@
 *.class
 *.log
+
+.idea/
+project
+target/
+# play ground not useful
+sandbox.sc
