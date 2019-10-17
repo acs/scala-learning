@@ -23,6 +23,7 @@ object ImplicitsParams extends App {
 }
 
 object ImplicitsTypeConversion extends App {
+
   // Convert between types using implicits methods helpers
   implicit def intToStr(num: Int): String = s"The value is $num"
 
@@ -37,12 +38,14 @@ object ImplicitsTypeConversion extends App {
   println(s1)
 }
 
-
 object ImplicitsClass extends App {
+
   // Since scala 2.10
   // In this sample the type String is extended with new methods
   implicit class StringOps(str: String) {
+
     def yell = str.toUpperCase() + "!"
+
     def isQuestion = str.endsWith("?")
   }
 
@@ -51,4 +54,65 @@ object ImplicitsClass extends App {
 }
 
 object ImplicitsTypeClass extends App {
+
+  // https://medium.com/@olxc/type-classes-explained-a9767f64ed2c
+  // OOP polymorphism vs type classes polymorphism: https://wiki.haskell.org/OOP_vs_type_classes
+
+  /*
+   * OOP Polymorphism
+   */
+  trait ShapeOOP {
+
+    def area: Double
+  }
+
+  // Implementation 1
+  class CircleOOP(radius: Double) extends ShapeOOP {
+
+    override def area: Double = math.Pi * math.pow(radius, 2)
+  }
+
+  // Implementation 2
+  class RectangleOOP(width: Double, length: Double) extends ShapeOOP {
+
+    override def area: Double = width * length
+  }
+
+  // Generic function
+  def areaOf(shape: ShapeOOP): Double = shape.area
+
+  // Usage
+  println(areaOf(new CircleOOP(10)))
+  println(areaOf(new RectangleOOP(5, 5)))
+
+  /*
+   * Type classes polymorphism
+  */
+
+  // The interface to be implemented
+  trait Shape[A] {
+    def area(a: A): Double
+  }
+
+  // The data and the implementation are separated
+  // The data is defined as case classes
+  case class Circle(radius: Double)
+  case class Rectangle(width: Double, length: Double)
+
+  // Implicit objects are used to convert from Shape[T] to its implementation
+  implicit object CircleShape extends Shape[Circle] {
+    override def area(circle: Circle) : Double = math.Pi * math.pow(circle.radius, 2)
+  }
+
+  // And here >
+  implicit object RectangleShape extends Shape[Rectangle] {
+    override def area(rectangle: Rectangle): Double = rectangle.width * rectangle.length
+  }
+
+  // The implicit method is the implementation of the classes
+  def areaOf[A](shape: A)(implicit shapeImpl: Shape[A]): Double = shapeImpl.area(shape)
+
+  println(areaOf(Circle(10)))
+  println(areaOf(Rectangle(5,5)))
+
 }
