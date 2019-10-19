@@ -33,6 +33,12 @@ package acs
   * http://james-iry.blogspot.com/2007/11/monads-are-elephants-part-4.html
   *
   * https://typelevel.org/cats/typeclasses/monad.html
+  *
+  * Monads as containers
+  * https://blog.redelastic.com/a-guide-to-scala-collections-exploring-monads-in-scala-collections-ef810ef3aec3
+  *
+  * Monads created the natural way
+  * https://dev.to/codenoodle/don-t-read-this-monad-tutorial-2cfc
   */
 
 object Monads {
