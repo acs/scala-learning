@@ -7,6 +7,7 @@ package acs
   * A category (monad?) has two basic properties:
   * the ability to compose the arrows associatively, and the existence of an identity arrow for each object.
   * Concepts: Monoid, functor, applicative, ...
+  * https://blog.knoldus.com/scalafp-lets-begin-semigroups/
   * Libraries (https://github.com/lauris/awesome-scala)
   * https://typelevel.org/cats/
   * https://scalaz.github.io/
