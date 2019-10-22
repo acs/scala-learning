@@ -37,8 +37,15 @@ package acs
   * Monads as containers
   * https://blog.redelastic.com/a-guide-to-scala-collections-exploring-monads-in-scala-collections-ef810ef3aec3
   *
-  * Monads created the natural way
+  *
+  * A Debug Monad created the natural way
+  * Just like many other functional programming tools,
+  * a monad takes legitimately useful code
+  * that might otherwise be very awkward to use and makes it feel more natural.
+  * The monad laws just make sure we can refactor our code in the way we expect and have predictable results.
   * https://dev.to/codenoodle/don-t-read-this-monad-tutorial-2cfc
+  *   https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/
+  *
   */
 
 object Monads {
