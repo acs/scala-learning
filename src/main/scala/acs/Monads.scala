@@ -46,6 +46,16 @@ package acs
   * https://dev.to/codenoodle/don-t-read-this-monad-tutorial-2cfc
   *   https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/
   *
+  *
+  * TODO:
+  *
+  * Complete the 3rd and 4th posts of http://james-iry.blogspot.com/2007/09/monads-are-elephants-part-1.html
+  * Check monad laws practical checks at https://dev.to/codenoodle/don-t-read-this-monad-tutorial-2cfc
+  * Check foreach and filter methods in Monad in http://james-iry.blogspot.com/2007/09/monads-are-elephants-part-2.html
+  * Implement as map+flatten Debug Monad (https://dev.to/codenoodle/don-t-read-this-monad-tutorial-2cfc)
+  * Study the code for Option, Either, Try, List and other simple monads
+  *
+  *
   */
 
 object Monads {
