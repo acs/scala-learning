@@ -1,5 +1,9 @@
 package acs
 
+import acs.samples.Cloud
+import acs.samples.Employee
+import acs.samples.EmployeeWithRole
+import acs.samples.Role
 import org.mockito.Matchers._
 import org.mockito.Mockito._
 import org.scalatest.MustMatchers

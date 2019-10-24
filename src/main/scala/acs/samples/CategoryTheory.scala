@@ -1,4 +1,4 @@
-package acs
+package acs.samples
 
 /**
   * https://en.wikipedia.org/wiki/Category_theory

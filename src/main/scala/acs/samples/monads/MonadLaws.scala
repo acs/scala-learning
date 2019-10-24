@@ -1,6 +1,4 @@
-package acs
-
-// http://james-iry.blogspot.com/2007/10/monads-are-elephants-part-3.html
+package acs.samples.monads
 
 object MonadLaws extends App {
 

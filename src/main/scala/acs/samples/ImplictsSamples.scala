@@ -1,4 +1,4 @@
-package acs
+package acs.samples
 
 // In IntelliJ there are helps for working with implicits
 // CTRL+SHIFT+P: show implicits params

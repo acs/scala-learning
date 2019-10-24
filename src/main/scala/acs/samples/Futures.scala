@@ -1,11 +1,12 @@
-package acs
+package acs.samples
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.concurrent.blocking
+import scala.util.Failure
 import scala.util.Random
-import scala.util.{Failure, Success}
+import scala.util.Success
 
 
 // http://engineering.monsanto.com/2015/06/15/implicits-futures/

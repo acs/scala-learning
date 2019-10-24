@@ -1,4 +1,4 @@
-package acs
+package acs.samples.monads
 
 /**
   * Playing with monads an with Scala syntax

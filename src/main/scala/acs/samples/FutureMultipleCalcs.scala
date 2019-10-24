@@ -1,10 +1,9 @@
-package acs
+package acs.samples
 
 import scala.concurrent.Await
-import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 import scala.concurrent.duration._
-import scala.util.{Failure, Success}
 import scala.util.Random
 
 // Sample from: https://alvinalexander.com/scala/concurrency-with-scala-futures-tutorials-examples

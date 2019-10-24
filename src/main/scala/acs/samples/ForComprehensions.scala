@@ -1,4 +1,4 @@
-package acs
+package acs.samples
 
 // Init based on: https://docs.scala-lang.org/tour/for-comprehensions.html
 

@@ -1,4 +1,4 @@
-package acs
+package acs.samples
 
 object OptionSample extends App {
   // Playing with Option/Some

@@ -1,4 +1,4 @@
-package acs
+package acs.samples
 
 import scala.util.Failure
 import scala.util.Success

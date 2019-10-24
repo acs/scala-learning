@@ -1,4 +1,4 @@
-package acs
+package acs.samples.monads
 
 /**
   * In this module I will play with Monads to understand them conceptually and practically

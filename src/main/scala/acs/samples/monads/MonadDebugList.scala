@@ -1,4 +1,4 @@
-package acs
+package acs.samples.monads
 
 object MonadDebugList extends App {
 
