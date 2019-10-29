@@ -47,6 +47,10 @@ package acs.samples.monads
   *   https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/
   *
   *
+  * With a monad, a programmer can turn a complicated sequence of functions into a succinct pipeline that
+  * abstracts away auxiliary data management, control flow, or side-effects
+  * https://en.wikipedia.org/wiki/Monad_%28functional_programming%29
+  *
   * TODO:
   *
   * Complete the 3rd and 4th posts of http://james-iry.blogspot.com/2007/09/monads-are-elephants-part-1.html
