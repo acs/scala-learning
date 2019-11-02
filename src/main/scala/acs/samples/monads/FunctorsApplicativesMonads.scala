@@ -15,6 +15,11 @@ https://medium.com/beingprofessional/understanding-functor-and-monad-with-a-bag-
 Haskell has wonderful articles about Monads (maybe I should learn fist in Haskell?):
 http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html (Haskell, intuitive approach)
 http://learnyouahaskell.com/a-fistful-of-monads (http://learnyouahaskell.com/chapters)
+https://wiki.haskell.org/Typeclassopedia
+https://wiki.haskell.org/Research_papers/Functional_pearls
+
+Monads et all with scalaz
+http://etorreborre.blogspot.com/2011/06/essence-of-iterator-pattern.html
 
  */
 
