@@ -7,6 +7,7 @@ import scala.concurrent.duration._
 import scala.util.Random
 
 // Sample from: https://alvinalexander.com/scala/concurrency-with-scala-futures-tutorials-examples
+// https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-9-promises-and-futures-in-practice/
 
 object Cloud {
 
@@ -78,7 +79,8 @@ object FutureLife extends App {
 
   /* For tips on reducing nested Futures for serializig them:
     https://www.michaelpollmeier.com/execute-scala-futures-in-serial-one-after-the-other-non-blocking
-    In our case we don't need to serialize them but I will do it
+    In our case we don't need to execute in serial them but I will do it
+    TODO: Not done yet!
    */
   def drinkBeerNowSlate(bar: Bar) = {
     val checks = Future.sequence(List(bar.isOpen(), bar.hasBeer()))
