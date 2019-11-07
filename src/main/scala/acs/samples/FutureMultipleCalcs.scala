@@ -7,7 +7,7 @@ import scala.concurrent.duration._
 import scala.util.Random
 
 // Sample from: https://alvinalexander.com/scala/concurrency-with-scala-futures-tutorials-examples
-// https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-9-promises-and-futures-in-practice/
+// https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-8-welcome-to-the-future/
 
 object Cloud {
 
@@ -26,7 +26,12 @@ object FutureMultipleCalcs extends App {
   val result2 = Cloud.runAlgorithm(20)
   val result3 = Cloud.runAlgorithm(30)
 
-  println("before for-comprehension")
+  /* If you have multiple computations that can be computed in parallel,
+    you need to take care that you already create
+    the corresponding Future instances outside of the for comprehension.
+   */
+
+  println("before for-comprehension parallel")
   val result = for {
     r1 <- result1
     r2 <- result2
@@ -36,7 +41,20 @@ object FutureMultipleCalcs extends App {
   println("before onSuccess")
   result onSuccess {
     // When the result is completed (i.e. all futures are completed) with Success then
-    case result => println(s"total = $result")
+    case result => println(s"total parallel = $result")
+  }
+
+  // Let's do it now in serial
+  println("before for-comprehension serial")
+  val resultSerial = for {
+    r1 <- Cloud.runAlgorithm(10)
+    r2 <- Cloud.runAlgorithm(20)
+    r3 <- Cloud.runAlgorithm(30)
+  } yield (r1 + r2 + r3)
+
+  result onSuccess {
+    // When the result is completed (i.e. all futures are completed) with Success then
+    case result => println(s"total serial= $result")
   }
 
   println("before sleep at the end")

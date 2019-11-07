@@ -60,6 +60,10 @@ package acs.samples.monads
   * Study the code for Option, Either, Try, List and other simple monads
   *
   *
+  * If the computation of one Future depends on the result of another,
+  * you'll likely want to resort to flatMap to avoid a deeply nested structure of futures.
+  * https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-8-welcome-to-the-future/
+  *
   */
 
 object Monads {
