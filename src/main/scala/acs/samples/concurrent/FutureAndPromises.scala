@@ -1,22 +1,10 @@
-package acs.samples
+package acs.samples.concurrent
 
-import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.concurrent.Promise
-import scala.concurrent.duration._
-import scala.util.Random
-import scala.util.{Success, Failure}
-
-// https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-9-promises-and-futures-in-practice/
-
-/* The Future type only provides an interface for reading the value to be computed.
-   The task of writing the computed value is achieved via a Promise. Hence, there is a clear separation
-   of concerns in the API design.
- */
-
-/* Making blocking code concurrent can be pretty easy by wrapping it in a call to future. However,
-   it's better to be non-blocking in the first place. To achieve this, one has to make a Promise to complete a Future
- */
+import scala.util.Failure
+import scala.util.Success
+import scala.concurrent.ExecutionContext.Implicits.global
 
 
 object FutureAndPromises extends App {

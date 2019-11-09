@@ -1,9 +1,12 @@
 package acs
 
-import acs.samples.Cloud
-import acs.samples.Employee
-import acs.samples.EmployeeWithRole
-import acs.samples.Role
+import acs.samples.concurrent.Employee
+import acs.samples.concurrent.EmployeeWithRole
+import acs.samples.concurrent.Role
+import acs.samples.concurrent.Cloud
+import acs.samples.concurrent.Employee
+import acs.samples.concurrent.EmployeeWithRole
+import acs.samples.concurrent.Role
 import org.mockito.Matchers._
 import org.mockito.Mockito._
 import org.scalatest.MustMatchers

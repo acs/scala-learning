@@ -1,4 +1,4 @@
-package acs.samples
+package acs.samples.concurrent
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.ExecutionContext.Implicits.global
