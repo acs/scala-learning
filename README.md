@@ -1,2 +1,7 @@
 # scala-learning
-Learning Scala
+
+Learning Scala by sample.
+
+## Resources
+
+https://nrinaudo.github.io/scala-best-practices/
